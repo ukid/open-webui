@@ -264,33 +264,6 @@
 				'openai',
 				'users'
 			]
-		},
-		{
-			id: 'about',
-			title: 'About',
-			keywords: [
-				'about',
-				'info',
-				'information',
-				'version',
-				'documentation',
-				'help',
-				'support',
-				'details',
-				'aboutus',
-				'softwareinfo',
-				'timothyjaeryangbaek',
-				'openwebui',
-				'release',
-				'updates',
-				'updateinfo',
-				'versioninfo',
-				'aboutapp',
-				'terms',
-				'termsandconditions',
-				'contact',
-				'aboutpage'
-			]
 		}
 	];
 

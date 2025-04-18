@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { getVersionUpdates } from '$lib/apis';
 	import { getOllamaVersion } from '$lib/apis/ollama';
 	import { WEBUI_BUILD_HASH, WEBUI_VERSION } from '$lib/constants';
 	import { WEBUI_NAME, config, showChangelog } from '$lib/stores';
@@ -18,27 +17,10 @@
 		latest: ''
 	};
 
-	const checkForVersionUpdates = async () => {
-		updateAvailable = null;
-		version = await getVersionUpdates(localStorage.token).catch((error) => {
-			return {
-				current: WEBUI_VERSION,
-				latest: WEBUI_VERSION
-			};
-		});
-
-		console.log(version);
-
-		updateAvailable = compareVersion(version.latest, version.current);
-		console.log(updateAvailable);
-	};
-
 	onMount(async () => {
 		ollamaVersion = await getOllamaVersion(localStorage.token).catch((error) => {
 			return '';
 		});
-
-		checkForVersionUpdates();
 	});
 </script>
 
@@ -80,14 +62,6 @@
 					</button>
 				</div>
 
-				<button
-					class=" text-xs px-3 py-1.5 bg-gray-100 hover:bg-gray-200 dark:bg-gray-850 dark:hover:bg-gray-800 transition rounded-lg font-medium"
-					on:click={() => {
-						checkForVersionUpdates();
-					}}
-				>
-					{$i18n.t('Check for updates')}
-				</button>
 			</div>
 		</div>
 
